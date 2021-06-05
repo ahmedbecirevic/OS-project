@@ -1,1 +1,1 @@
-# OS-project
+# Shell in C implementation
