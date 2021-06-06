@@ -4,3 +4,26 @@ Q1: The following actions, do they require the OS to use kernel mode or user mod
 3.Writing the results of the multiplication to a temporary log file on disk. 
 
 Answers:
+1. Starting a new process. 
+
+The system is in user mode when the operating system is running a user application such as handling 
+a text editor.The transition from user mode to kernel mode occurs when the application requests the 
+help of operating system or an interrupt or a system call occurs.
+The mode bit is set to 1 in the user mode. It is changed from 1 to 0 when switching from user mode to kernel mode.
+
+
+The system starts in kernel mode when it boots and after the operating system is loaded, it executes 
+applications in user mode. There are some privileged instructions that can only be executed in kernel mode.
+These are interrupt instructions, input output management etc. If the privileged instructions are executed 
+in user mode, it is illegal and a trap is generated.
+The mode bit is set to 0 in the kernel mode. It is changed from 0 to 1 when switching from kernel mode to user mode.
+
+
+2. Multiplying two floating numbers stored in an application’s memory. 
+
+When we multiply two numbers in user mode we do not need any functions or any hardware so in this case it is better
+to use user mode over kernel.
+
+3. Writing the results of the multiplication to a temporary log file on disk. 
+
+Writing temporary files in user mode is not allowed so in this situation we can only use kernel.
