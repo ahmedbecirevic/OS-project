@@ -1,0 +1,6 @@
+Q1: The following actions, do they require the OS to use kernel mode or user mode is sufficient? Explain. 
+1.Starting a new process. 
+2.Multiplying two floating numbers stored in an application’s memory. 
+3.Writing the results of the multiplication to a temporary log file on disk. 
+
+Answers:

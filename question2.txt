@@ -1,0 +1,21 @@
+Q2: Explain the purpose of a system call. Describe how control passes to the kernel when executing a system call. 
+
+I : System call is an OS procedure that executes privileged instructions; also API (Application User Interface)
+exported by the kernel. System calls perform system-level operations, such as communicating with 
+hardware devices and reading and writing files. 
+
+Examples of System calls:
+pid = fork()
+pid = waitpid(pid, &statioc, options)
+
+A system call is just a userspace request of a kernel service. The operating system kernel provides many 
+services. When your program wants to write to or read from a file, it starts with listening for connections 
+on a socket, deleting or creating directory, or even finishing its work, a program is using a system call.
+In other words, a system call is just a C kernel space function that user space programs are calling for 
+handling some request. Implementing system calls requires a control transfer which involves some sort of 
+architecture specific feature. Typically, each system call is associated with a number. When a system call 
+is made, it triggers a software interrupt or trap which uses the number to find the proper system call in a 
+lookup table. Interrupts transfer control to the kernel so software simply needs to set up some register with 
+the system call number they want and execute the software interrupt. The caller of the system call doesn’t need 
+to know anything about how the system call was implemented. The details of the OS implementation are generally 
+hidden from the programmer.
